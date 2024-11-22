@@ -76,6 +76,7 @@
             btn_sign_up.TabIndex = 4;
             btn_sign_up.Text = "Sign up";
             btn_sign_up.UseVisualStyleBackColor = false;
+            btn_sign_up.Click += btn_sign_up_Click;
             // 
             // tb_password
             // 

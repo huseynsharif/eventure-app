@@ -1,4 +1,5 @@
 ﻿using EventureApp.Models;
+using Microsoft.IdentityModel.Tokens;
 
 
 namespace EventureApp.UI
@@ -23,7 +24,27 @@ namespace EventureApp.UI
 
         private void btn_login_Click(object sender, EventArgs e)
         {
-            NavigateToHome();
+            try
+            {
+                checkInputs();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void checkInputs()
+        {
+            if (
+                    tb_username.Text.IsNullOrEmpty() ||
+                    tb_password.Text.IsNullOrEmpty()
+               )
+            {
+
+                throw new Exception("Please, fill all fields.");
+            }
+
         }
 
         private void NavigateToHome()
